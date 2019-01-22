@@ -140,7 +140,7 @@ $(document).ready(function() {
             var countNext = thisCount++;
             obj.text(countNext);
             
-            if(countNext >= 10){
+            if(countNext >= 200){
                 $(".speedup").addClass("speedup_visible");
             }
             
