@@ -1,0 +1,315 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* layout contents */
+html,body{
+    height:100%;
+}
+body{
+    background:#F5F5F5;
+    font: 20px/20px  'Roboto Mono', monospace,"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    color:#263238;
+    overflow: hidden;
+    position: fixed;
+    width:100%;
+}
+body > #contents {
+    height: auto;
+}
+.jpfont {
+    font-family: "M PLUS Rounded 1c";
+    font-weight:bold;
+
+}
+
+a,a:link,a:visited{/*リンクされた文字*/
+    color:#e2af00;
+    font-style:normal;
+    text-decoration:underline;
+}
+
+    a:hover {/*マウスをのせたとき*/
+        color:#e3be44;
+        font-style:normal;
+        text-decoration:underline;
+    }
+    /*
+    a,a:link,a:visited{
+    color:#5962a5;
+    font-style:normal;
+    text-decoration:underline;
+}
+
+    a:hover {
+        color:#6a76d3;
+        font-style:normal;
+        text-decoration:underline;
+    }
+    */
+.t-center{
+    text-align:center;
+}
+
+.cf{
+    width:100%;
+}
+    .cf:after {
+      content: "";
+      display: block;
+      clear: both;
+     }
+
+.wrapper{
+    position:relative;
+    margin: 0px auto;
+    min-width: 980px;
+}
+.contents{
+    width: 620px;
+    margin: 50px auto;
+}
+
+.light{
+    display:inline-block;
+    *display: inline;
+       *zoom: 1;
+}
+.light:hover{
+    /*display: inline-block;*/
+    opacity:0.8;
+    filter:alpha(opacity=80);
+    -ms-filter: "alpha( opacity=80 )";
+}
+
+.meter{
+    width:0;
+    height:2em;
+    background:#79D1B0;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    z-index: 2;
+    /*animation: move linear 80s forwards;*/
+}
+.meterArea:after{
+    content:"";
+    width:500px;
+    height:100%;
+    position: absolute;
+    top:0;
+    left:0;
+    background:#eeeded;
+    z-index:-1;
+}
+
+.meterArea{
+    width:600px;
+    position: relative;
+    margin: 0 0 6px;
+}
+.start,.stop{
+    background:#33BFDB;
+    padding:1em;
+    width:7em;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 5px;
+    color:#3b555a;
+}
+.start:hover,.btn:hover,.stop:hover{
+    cursor: pointer;
+}
+.start:hover,.btn:hover{
+    background:#F58E7E;
+    transition:0.3s;
+}
+.stopcss{
+    background:#F58E7E !important;
+    transition:0.3s;
+}
+.stopcss:hover{
+    background:#33BFDB;
+}
+
+
+.btn.btnnone{
+    display:none;
+}
+
+.visibleArea{
+    display:none;
+}
+.meter.end{
+    background:#FDC44F;
+}
+.btn{
+    width:3em;
+    height:2em;
+    background:#33BFDB;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom:2px;
+    position: absolute;
+    right:0px;
+    border-radius: 10px;
+}
+/*
+.btn {
+    background:#33BFDB;
+    display: inline-block;
+    position: relative;
+    margin: 0 auto;
+    width: 40px;
+    height: 48px;
+    cursor: pointer;
+}*/
+.btn:before, .btn:after {
+    position: absolute;
+    top: 50%;
+    left:55%;
+    width: 0;
+    height: 48%;
+    content: '';
+    border-top: 0 solid transparent;
+    border-bottom: 0 solid transparent;
+    border-left: 6px solid #fff;
+    transform: translate3d(-50%, -50%, 0);
+
+    
+    border-top-width: 10px;
+    border-left-width: 16px;
+    border-bottom-width: 10px;
+}
+.btn:before {
+    height: 0;
+    -webkit-transition: 0.2s linear;
+    -moz-transition: 0.2s linear;
+    -o-transition: 0.2s linear;
+    transition: 0.2s linear;
+}
+.btn.active:after {
+    right: 35%;
+    -webkit-transition: 0.18s ease;
+    -moz-transition: 0.18s ease;
+    -o-transition: 0.18s ease;
+    transition: 0.18s ease;
+    opacity:1;
+}
+
+.btn.active:before, .btn.active:after {
+    position: absolute;
+    top: 50%;
+    width: 0;
+    height: 48%;
+    content: '';
+    border-top: 0 solid transparent;
+    border-bottom: 0 solid transparent;
+    border-left: 6px solid #fff;
+    transform: translate3d(0, -50%, 0);
+}
+.btn:after {
+   opacity:0;
+    
+}.btn.active:before {
+    left:38%;
+}
+.btn.active:after {
+    height: 48%;
+    -webkit-transition: 0.2s linear;
+    -moz-transition: 0.2s linear;
+    -o-transition: 0.2s linear;
+    transition: 0.2s linear;
+}
+
+.times{
+    display: inline-block;
+    width: 290px;
+    height: 100px;
+    text-align: center;
+    margin: 40px 0 40px;
+}
+.times p:nth-child(2){
+    padding:20px 0 0px;
+    font-size:50px;
+}
+.speedup{
+    background:#F58E7E;
+    padding:10px;
+    text-align: center;
+    color:#8c463c;
+    border-radius: 5px;
+    height:0;
+    transition: height 500ms;
+    opacity: 0;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center; /* 縦方向中央揃え（Safari用） */
+    align-items: center; /* 縦方向中央揃え */
+    -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
+    justify-content: center; /* 横方向中央揃え */
+    margin: 25px 20px 0px 0px;
+    
+}
+.speedup_visible{
+    height:2em;
+    opacity:1;
+}
+
+
+
+/*
+
+
+.btn:before, .btn:after {
+    position: absolute;
+    top: 50%;
+    width: 0;
+    height: 48%;
+    content: '';
+    border-top: 0 solid transparent;
+    border-bottom: 0 solid transparent;
+    border-left: 6px solid #fff;
+    transform: translate3d(0, -50%, 0);
+}
+.btn:before {
+    left: 35%;
+    -webkit-transition: 0.18s linear;
+    -moz-transition: 0.18s linear;
+    -o-transition: 0.18s linear;
+    transition: 0.18s linear;
+}
+.btn:after {
+    right: 35%;
+    -webkit-transition: 0.18s ease;
+    -moz-transition: 0.18s ease;
+    -o-transition: 0.18s ease;
+    transition: 0.18s ease;
+}
+
+.btn.active:before, .btn.active:after {
+    border-top-width: 10px;
+    border-left-width: 16px;
+    border-bottom-width: 10px;
+}
+.btn.active:before {
+    display: none;
+}
+.btn.active:after {
+    height: 0;
+    -webkit-transition: 0.2s linear;
+    -moz-transition: 0.2s linear;
+    -o-transition: 0.2s linear;
+    transition: 0.2s linear;
+}
+*/
+
+
+@keyframes move {
+    0% {
+        width:0;
+    }
+    100% {
+        width:200px;
+    }
+}
