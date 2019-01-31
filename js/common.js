@@ -49,6 +49,36 @@ $(document).ready(function() {
                 _self.children(".btn").addClass("active");
             }
         });
+        
+        $(this).children(".btn2").click(function(){
+            //一時停止
+            if(_self.children(".btn2").hasClass("active")){
+                _self.children(".btn").data('speed','1');
+                _self.children(".btn2").removeClass("active");
+            }else{
+                _self.children(".btn2").addClass("active");
+                _self.children(".btn").data('speed','1.6');
+                console.log(_self.children(".btn").data('speed'));
+                _self.children(".btn3").removeClass("active");
+                
+                
+            }
+        });
+        
+        $(this).children(".btn3").click(function(){
+            //一時停止
+            if(_self.children(".btn3").hasClass("active")){
+                _self.children(".btn").data('speed','1');
+                _self.children(".btn3").removeClass("active");
+            }else{
+                _self.children(".btn3").addClass("active");
+                _self.children(".btn").data('speed','2');
+                console.log(_self.children(".btn").data('speed'));
+                _self.children(".btn2").removeClass("active");
+
+
+            }
+        });
 
     });
 
@@ -71,6 +101,8 @@ $(document).ready(function() {
 
                 }
                 
+                p.addtime = p.addtime * obj.parent().children(".btn").data("speed");
+                console.log(p.addtime);
 
 
                 p.nowtime = p.nowtime + p.addtime;
@@ -91,6 +123,8 @@ $(document).ready(function() {
                     clearInterval(p.countTimer);
                     obj.addClass("end");
                     obj.parents().children(".btn").remove();
+                    obj.parents().children(".btn2").remove();
+                    obj.parents().children(".btn3").remove();
                     
 
                     
@@ -100,9 +134,10 @@ $(document).ready(function() {
 
     var countTimer2="";
     $(".start").click(function(){
-      $(".btn").toggleClass("btnnone");//一時停止中はボタンを非表示
+      
       if(!$(this).hasClass("first")){//停止中のCSS付与
           $(this).toggleClass("stopcss");
+          $(".falseArea").toggleClass("visibles");//一時停止中はボタンを非表示
       }
         
       if(countTimer2){
